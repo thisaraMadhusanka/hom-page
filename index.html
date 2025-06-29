@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Neural Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        /* Custom properties for the gradient animation */
+        @property --c-0 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(217.59493670886076,100%,30%,1);
+        }
+        @property --s-start-0 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 8%;
+        }
+        @property --s-end-0 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 45.86293511880176%;
+        }
+        @property --x-0 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 91%;
+        }
+        @property --y-0 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 69%;
+        }
+        @property --c-1 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(0,0%,0%,1);
+        }
+        @property --s-start-1 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 1%;
+        }
+        @property --s-end-1 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 49.166438627289%;
+        }
+        @property --y-1 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 20%;
+        }
+        @property --x-1 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 92%;
+        }
+        @property --c-2 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(279.7894736842105,67%,27%,1);
+        }
+        @property --y-2 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 81%;
+        }
+        @property --x-2 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 2%;
+        }
+        @property --s-start-2 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 8.392121895570533%;
+        }
+        @property --s-end-2 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 48.52567687605722%;
+        }
+        @property --s-start-3 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 8.392121895570533%;
+        }
+        @property --s-end-3 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 49.58090142552271%;
+        }
+        @property --x-3 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 97%;
+        }
+        @property --y-3 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 67%;
+        }
+        @property --c-3 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(279.7894736842105,67%,27%,1);
+        }
+        @property --x-4 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 52%;
+        }
+        @property --s-start-4 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 18%;
+        }
+        @property --s-end-4 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 49.94408311488525%;
+        }
+        @property --c-4 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(217.68844221105527,100%,39%,1);
+        }
+        @property --y-4 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 77%;
+        }
+        @property --s-start-5 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 11.133917156423086%;
+        }
+        @property --s-end-5 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 41.601566034303026%;
+        }
+        @property --c-5 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(217.59493670886076,100%,30%,1);
+        }
+        @property --y-5 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 61%;
+        }
+        @property --x-5 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 88%;
+        }
+        @property --y-6 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 46%;
+        }
+        @property --x-6 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 8%;
+        }
+        @property --c-6 {
+            syntax: '<color>';
+            inherits: false;
+            initial-value: hsla(217.59336099585062,100%,47%,1);
+        }
+        @property --s-start-6 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 9.713086970899472%;
+        }
+        @property --s-end-6 {
+            syntax: '<percentage>';
+            inherits: false;
+            initial-value: 36.01800730950539%;
+        }
+        
+        @keyframes hero-gradient-animation {
+            0% {
+                --c-0: hsla(217.59493670886076,100%,30%,1);
+                --s-start-0: 8%;
+                --s-end-0: 45.86293511880176%;
+                --x-0: 91%;
+                --y-0: 69%;
+                --c-1: hsla(0,0%,0%,1);
+                --s-start-1: 1%;
+                --s-end-1: 49.166438627289%;
+                --y-1: 20%;
+                --x-1: 92%;
+                --c-2: hsla(279.7894736842105,67%,27%,1);
+                --y-2: 81%;
+                --x-2: 2%;
+                --s-start-2: 8.392121895570533%;
+                --s-end-2: 48.52567687605722%;
+                --s-start-3: 8.392121895570533%;
+                --s-end-3: 49.58090142552271%;
+                --x-3: 97%;
+                --y-3: 67%;
+                --c-3: hsla(279.7894736842105,67%,27%,1);
+                --x-4: 52%;
+                --s-start-4: 18%;
+                --s-end-4: 49.94408311488525%;
+                --c-4: hsla(217.68844221105527,100%,39%,1);
+                --y-4: 77%;
+                --s-start-5: 11.133917156423086%;
+                --s-end-5: 41.601566034303026%;
+                --c-5: hsla(217.59493670886076,100%,30%,1);
+                --y-5: 61%;
+                --x-5: 88%;
+                --y-6: 46%;
+                --x-6: 8%;
+                --c-6: hsla(217.59336099585062,100%,47%,1);
+                --s-start-6: 9.713086970899472%;
+                --s-end-6: 36.01800730950539%;
+            }
+            50% {
+                --c-0: hsla(217.59493670886076,100%,30%,1);
+                --s-start-0: 9;
+                --s-end-0: 47.631590766043374%;
+                --x-0: 16%;
+                --y-0: 69%;
+                --c-1: hsla(0,0%,0%,1);
+                --s-start-1: 9;
+                --s-end-1: 42.724849131360514%;
+                --y-1: 12%;
+                --x-1: 3%;
+                --c-2: hsla(279.7894736842105,67%,27%,1);
+                --y-2: 61%;
+                --x-2: 73%;
+                --s-start-2: 9%;
+                --s-end-2: 40.539112902234415%;
+                --s-start-3: 9%;
+                --s-end-3: 49.05074977970796%;
+                --x-3: 47%;
+                --y-3: 76%;
+                --c-3: hsla(279.7894736842105,67%,27%,1);
+                --x-4: 18%;
+                --s-start-4: 9;
+                --s-end-4: 41.70549052437993%;
+                --c-4: hsla(217.68844221105527,100%,39%,1);
+                --y-4: 46%;
+                --s-start-5: 11.232588486654471%;
+                --s-end-5: 45.2963125079906%;
+                --c-5: hsla(217.59493670886076,100%,30%,1);
+                --y-5: 102%;
+                --x-5: 42%;
+                --y-6: 70%;
+                --x-6: 33%;
+                --c-6: hsla(217.61194029850745,100%,39%,1);
+                --s-start-6: 9;
+                --s-end-6: 34.68968066496529%;
+            }
+            100% {
+                --c-1: hsla(0,0%,0%,1);
+                --s-start-1: 9;
+                --s-end-1: 22.729655783472005%;
+                --y-1: 4%;
+                --x-1: 41%;
+                --c-2: hsla(279.7894736842105,67%,27%,1);
+                --y-2: 82%;
+                --x-2: 98%;
+                --s-start-2: 10.200720718860145%;
+                --s-end-2: 50.46456494288142%;
+                --s-start-3: 10.200720718860145%;
+                --s-end-3: 50.46456494288142%;
+                --x-3: 9%;
+                --y-3: 48%;
+                --c-3: hsla(279.7894736842105,67%,27%,1);
+                --y-6: 70%;
+                --x-6: 93%;
+                --c-6: hsla(217.5,100%,31%,1);
+                --s-start-6: 9;
+                --s-end-6: 47.075992875412794%;
+            }
+        }
+
+        :root {
+            --primary-color: #606080;
+            --secondary-color: #8d7dca;
+            --dark-color: #212121;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-cyan: #00d4ff;
+            --accent-purple: #8d7dca;
+            --accent-green: #00ff88;
+            --accent-pink: #ff00d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            height: 100vh;
+            cursor: none;
+            
+            /* Apply the custom gradient */
+            --c-0: hsla(217.59493670886076,100%,30%,1);
+            --x-0: 91%;
+            --y-0: 69%;
+            --c-1: hsla(0,0%,0%,1);
+            --y-1: 20%;
+            --x-1: 92%;
+            --c-2: hsla(279.7894736842105,67%,27%,1);
+            --y-2: 81%;
+            --x-2: 2%;
+            --x-3: 97%;
+            --y-3: 67%;
+            --c-3: hsla(279.7894736842105,67%,27%,1);
+            --x-4: 52%;
+            --c-4: hsla(217.68844221105527,100%,39%,1);
+            --y-4: 77%;
+            --c-5: hsla(217.59493670886076,100%,30%,1);
+            --y-5: 61%;
+            --x-5: 88%;
+            --y-6: 46%;
+            --x-6: 8%;
+            --c-6: hsla(217.59336099585062,100%,47%,1);
+            
+            background-color: hsla(262,82%,3%,1);
+            background-image: 
+                radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)),
+                radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)),
+                radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)),
+                radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)),
+                radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4)),
+                radial-gradient(circle at var(--x-5) var(--y-5), var(--c-5) var(--s-start-5), transparent var(--s-end-5)),
+                radial-gradient(circle at var(--x-6) var(--y-6), var(--c-6) var(--s-start-6), transparent var(--s-end-6));
+            
+            animation: hero-gradient-animation 10s linear infinite alternate-reverse;
+            background-blend-mode: normal, normal, normal, normal, normal, normal, normal;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: transform 0.1s ease;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.7;
+        }
+
+        /* Scan Lines Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                transparent 50%, 
+                rgba(0, 212, 255, 0.03) 50%
+            );
+            background-size: 100% 4px;
+            z-index: 10;
+            pointer-events: none;
+            animation: scanline 0.1s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Futuristic Header */
+        .neural-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 500;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .system-time {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+        }
+
+        .neural-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Rainbow border for hamburger menu */
+        .menu-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            border: none;
+        }
+
+        .menu-button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff00cc, #00ccff, #00ffcc, #ffcc00, #ff00cc);
+            background-size: 300% 300%;
+            border-radius: 8px;
+            z-index: -1;
+            animation: shimmer-border 3s ease infinite;
+        }
+
+        .menu-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .menu-button svg {
+            fill: white;
+        }
+
+        .menu-button:hover::after {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 100px;
+            width: 100%;
+            max-width: 1400px;
+            z-index: 20;
+        }
+
+        /* Glass Effect Styles */
+        .glass-card {
+            --bg-color: rgba(255, 255, 255, 0.1);
+            --highlight: rgba(255, 255, 255, 0.75);
+            --text: #ffffff;
+            
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+            z-index: 15;
+            background: transparent;
+        }
+
+        
+
+        .glass-filter,
+        .glass-overlay,
+        .glass-specular,
+        .glass-distortion-overlay {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+        }
+
+        .glass-filter {
+            z-index: 1;
+            backdrop-filter: blur(12px);
+            filter: url(#glass-distortion) saturate(120%) brightness(1.15);
+        }
+
+        .glass-distortion-overlay {
+            z-index: 2;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 80%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 80%);
+            background-size: 300% 300%;
+            animation: floatDistort 10s infinite ease-in-out;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+        }
+
+        @keyframes floatDistort {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .glass-overlay {
+            z-index: 3;
+            background: var(--bg-color);
+            border: 1px solid var(--glass-border);
+        }
+
+        .glass-specular {
+            z-index: 4;
+            box-shadow: inset 1px 1px 1px var(--highlight);
+            pointer-events: none;
+        }
+
+        .glass-content {
+            position: relative;
+            z-index: 5;
+            padding: 25px;
+            color: var(--text);
+            height: 100%;
+        }
+
+        /* Command Interface */
+        .command-interface {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .interface-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .interface-title::before {
+            content: '>';
+            color: var(--accent-green);
+        }
+
+        /* Futuristic Search */
+        .quantum-search {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .search-container {
+            position: relative;
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid var(--glass-border);
+            border-radius: 50px;
+            padding: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 60px 18px 25px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        /* Rainbow border for search button */
+        .search-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .search-button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff00cc, #00ccff, #00ffcc, #ffcc00, #ff00cc);
+            background-size: 300% 300%;
+            border-radius: 50%;
+            z-index: -1;
+            animation: shimmer-border 3s ease infinite;
+        }
+
+        .search-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        @keyframes shimmer-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .search-button:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Neural Network Grid */
+        .neural-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .neural-node {
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            z-index: 1;
+            height: 100%;
+        }
+.neural-node:hover::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: 0;
+  border-radius: 16px;
+  background : linear-gradient(
+    60deg,
+    hsl(224, 85%, 66%),
+    hsl(249, 100%, 36%),
+    hsl(0, 0%, 0%)
+  );
+  background-size: 300% 300%;
+  animation: moveGradient 4s alternate infinite;
+  transition: 3s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+
+        .node-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .node-icon img {
+            width: 70%;
+            height: 70%;
+            object-fit: contain;
+            transition: all 0.5s ease;
+        }
+
+        .node-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .node-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Quantum Sidebar */
+        .quantum-sidebar {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 500px;
+            height: 100vh;
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(40px);
+            border-left: 1px solid var(--glass-border);
+            z-index: 1000;
+            transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow-y: auto;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .quantum-sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            padding: 30px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.3rem;
+            color: var(--accent-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .close-quantum {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-quantum:hover {
+            color: var(--accent-cyan);
+            transform: rotate(90deg);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        .bookmark-cluster {
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .cluster-header {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            color: var(--accent-purple);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bookmark-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bookmark-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .bookmark-link:hover::before {
+            left: 100%;
+        }
+
+        .bookmark-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--accent-cyan);
+            transform: translateX(10px);
+        }
+
+        .bookmark-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+        }
+
+        .bookmark-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Overlay */
+        .quantum-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .quantum-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Holographic Elements */
+        .hologram {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 1px solid var(--accent-cyan);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: hologram-spin 10s linear infinite;
+            box-shadow: 0 0 20px var(--accent-cyan);
+            z-index: -1;
+        }
+
+        @keyframes hologram-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hologram.top-left { top: 10%; left: 10%; }
+        .hologram.top-right { top: 15%; right: 15%; }
+        .hologram.bottom-left { bottom: 20%; left: 20%; }
+        .hologram.bottom-right { bottom: 10%; right: 10%; }
+
+        /* Loading Animation */
+        .loading-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            z-index: 10000;
+            transform-origin: left;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .neural-header {
+                padding: 15px 20px;
+            }
+            
+            .command-interface {
+                padding: 25px;
+                margin: 20px;
+            }
+            
+            .neural-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+            }
+            
+            .quantum-sidebar {
+                width: 100%;
+                right: -100%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- SVG Filter for Glass Distortion -->
+    <svg style="display: none">
+      <filter id="glass-distortion">
+        <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="77" />
+      </filter>
+    </svg>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    
+    <!-- Scanlines overlay -->
+    <div class="scanlines"></div>
+    
+    <!-- Holographic Elements -->
+    <div class="hologram top-left"></div>
+    <div class="hologram top-right"></div>
+    <div class="hologram bottom-left"></div>
+    <div class="hologram bottom-right"></div>
+    
+    <!-- Loading Bar -->
+    <div class="loading-bar"></div>
+
+    <!-- Neural Header -->
+    <header class="neural-header">
+        <div class="logo">NEURAL//OS</div>
+        <div class="neural-menu">
+            <div class="system-time" id="system-time"></div>
+            <div class="menu-button" onclick="toggleQuantumSidebar()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Command Interface with Glass Effect -->
+            <div class="command-interface glass-card">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-distortion-overlay"></div>
+                <div class="glass-content">
+                    <div class="interface-title">Google Search Interface</div>
+                    
+                    <div class="quantum-search">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Enter Search Query..." id="search-input" onkeypress="handleQuantumSearch(event)">
+                            <button class="search-button" onclick="executeQuantumSearch()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="interface-title">Shortcuts</div>
+                    
+                    <!-- Neural Grid with Glass Effect -->
+                    <div class="neural-grid">
+                        <a href="https://facebook.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/9.png" alt="Facebook">
+                                </div>
+                                <div class="node-label">Facebook</div>
+                                <div class="node-status">Social</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://web.whatsapp.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/10.png" alt="WhatsApp">
+                                </div>
+                                <div class="node-label">WhatsApp</div>
+                                <div class="node-status">Chat</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://youtube.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/4.png" alt="YouTube">
+                                </div>
+                                <div class="node-label">YouTube</div>
+                                <div class="node-status">STREAMING</div>
+                            </div>
+                        </a>
+                         <a href="https://www.instagram.com/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/5.png" alt="Google">
+                                </div>
+                                <div class="node-label">Instergram </div>
+                                <div class="node-status">INDEXED</div>
+                            </div>
+                        </a>
+                        <a href="https://gmail.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/3.png" alt="Gmail">
+                                </div>
+                                <div class="node-label">Gmail</div>
+                                <div class="node-status">SYNCED</div>
+                            </div>
+                        </a>
+                        
+                       
+                           
+                        <a href="https://github.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub">
+                                </div>
+                                <div class="node-label">GitHub</div>
+                                <div class="node-status">VERSION</div>
+                            </div>
+                        </a>
+       
+                        <a href="http://localhost/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/8.png" alt="Twitter">
+                                </div>
+                                <div class="node-label">localhost</div>
+                                <div class="node-status">Project</div>
+                            </div>
+                        </a>
+                        
+                    
+
+                        <a href="https://chat.openai.com" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/2.png" alt="ChatGPT">
+                                </div>
+                                <div class="node-label">ChatGPT</div>
+                                <div class="node-status">Ai Agent</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://claude.ai" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                     <img src="logo/1.png" alt="">
+                                </div>
+                                <div class="node-label">Claude</div>
+                                <div class="node-status">Ai Agent</div>
+                            </div>
+                        </a>
+                     
+                 
+                        <a href="https://chat.deepseek.com/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/7.png" alt="Deepseek">
+                                </div>
+                                <div class="node-label">Deepseek</div>
+                                <div class="node-status">Ai Agent</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://gemini.google.com/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/12.png" alt="Reddit">
+                                </div>
+                                <div class="node-label">Gemini</div>
+                                <div class="node-status">Ai agent</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://chat.qwen.ai/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/11.png" alt="Spotify">
+                                </div>
+                                <div class="node-label">Qwen Ai</div>
+                                <div class="node-status">Ai agent</div>
+                            </div>
+                        </a>
+
+                         <a href="https://www.canva.com/" class="neural-node glass-card">
+                            <div class="glass-filter"></div>
+                            <div class="glass-overlay"></div>
+                            <div class="glass-specular"></div>
+                            <div class="glass-distortion-overlay"></div>
+                            <div class="glass-content">
+                                <div class="node-icon">
+                                    <img src="logo/13.png" alt="Spotify">
+                                </div>
+                                <div class="node-label">Canva</div>
+                                <div class="node-status">Design</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quantum Overlay -->
+    <div class="quantum-overlay" onclick="closeQuantumSidebar()"></div>
+    
+    <!-- Quantum Sidebar -->
+    <div class="quantum-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">Quantum Links</div>
+            <button class="close-quantum" onclick="closeQuantumSidebar()">×</button>
+        </div>
+        
+        <div class="bookmark-cluster">
+            <div class="cluster-header">
+                🌐 Social Networks
+            </div>
+            <a href="https://facebook.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/facebook/facebook-original.svg" alt="">
+                </div>
+                Facebook Neural Hub
+            </a>
+            <a href="https://instagram.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="">
+                </div>
+                Instagram Visual Feed
+            </a>
+            <a href="https://twitter.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg" alt="">
+                </div>
+                Twitter Data Stream
+            </a>
+            <a href="https://linkedin.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="">
+                </div>
+                LinkedIn Professional
+            </a>
+        </div>
+        
+        <div class="bookmark-cluster">
+            <div class="cluster-header">
+                💼 Productivity Matrix
+            </div>
+            <a href="https://gmail.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="">
+                </div>
+                Gmail Quantum Mail
+            </a>
+            <a href="https://drive.google.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="">
+                </div>
+                Drive Cloud Storage
+            </a>
+            <a href="https://notion.so" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png" alt="">
+                </div>
+                Notion Knowledge Base
+            </a>
+            <a href="https://slack.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg" alt="">
+                </div>
+                Slack Communication
+            </a>
+        </div>
+        
+        <div class="bookmark-cluster">
+            <div class="cluster-header">
+                🤖 AI Neural Networks
+            </div>
+            <a href="https://chat.openai.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="">
+                </div>
+                ChatGPT AI Assistant
+            </a>
+            <a href="https://claude.ai" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.brandfetch.io/idAnDTFapY/theme/dark/symbol.svg?k=bfHSJFAPEG" alt="">
+                </div>
+                Claude AI Partner
+            </a>
+            <a href="https://midjourney.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="">
+                </div>
+                Midjourney Art AI
+            </a>
+            <a href="https://huggingface.co" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="">
+                </div>
+                HuggingFace Models
+            </a>
+        </div>
+        
+        <div class="bookmark-cluster">
+            <div class="cluster-header">
+                🎮 Entertainment Hub
+            </div>
+            <a href="https://youtube.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/youtube/youtube-original.svg" alt="">
+                </div>
+                YouTube Video Matrix
+            </a>
+            <a href="https://netflix.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="">
+                </div>
+                Netflix Streaming
+            </a>
+            <a href="https://spotify.com" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spotify/spotify-original.svg" alt="">
+                </div>
+                Spotify Audio Stream
+            </a>
+            <a href="https://twitch.tv" class="bookmark-link">
+                <div class="bookmark-icon">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitch/twitch-original.svg" alt="">
+                </div>
+                Twitch Live Stream
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeInterface();
+            setupCustomCursor();
+            updateSystemTime();
+            animateLoadingSequence();
+            setupGlassEffects();
+        });
+
+        function initializeInterface() {
+            // Animate neural nodes on load
+            gsap.from('.neural-node', {
+                opacity: 0,
+                y: 50,
+                scale: 0.8,
+                duration: 0.8,
+                stagger: 0.1,
+                delay: 0.5,
+                ease: "back.out(1.7)"
+            });
+            
+            // Animate command interface
+            gsap.from('.command-interface', {
+                opacity: 0,
+                y: 30,
+                duration: 1,
+                delay: 0.3
+            });
+        }
+
+        function setupCustomCursor() {
+            const cursor = document.querySelector('.cursor');
+            const cursorTrail = document.createElement('div');
+            cursorTrail.classList.add('cursor-trail');
+            document.body.appendChild(cursorTrail);
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            let trailX = 0;
+            let trailY = 0;
+            let scale = 1;
+            
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px) scale(${scale})`;
+            });
+            
+            document.addEventListener('mousedown', () => {
+                scale = 0.8;
+                cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px) scale(${scale})`;
+            });
+            
+            document.addEventListener('mouseup', () => {
+                scale = 1;
+                cursor.style.transform = `translate(${mouseX - 10}px, ${mouseY - 10}px) scale(${scale})`;
+            });
+            
+            function animate() {
+                trailX += (mouseX - trailX) * 0.1;
+                trailY += (mouseY - trailY) * 0.1;
+                cursorTrail.style.transform = `translate(${trailX - 2}px, ${trailY - 2}px)`;
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        function updateSystemTime() {
+            const timeElement = document.getElementById('system-time');
+            
+            function updateTime() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            
+            updateTime();
+            setInterval(updateTime, 1000);
+        }
+
+        function animateLoadingSequence() {
+            const loadingBar = document.querySelector('.loading-bar');
+            
+            // Animate loading bar
+            gsap.to(loadingBar, {
+                width: '100%',
+                duration: 2.5,
+                ease: "power2.inOut",
+                onComplete: () => {
+                    gsap.to(loadingBar, {
+                        opacity: 0,
+                        duration: 0.5,
+                        onComplete: () => {
+                            loadingBar.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        }
+
+        function toggleQuantumSidebar() {
+            const sidebar = document.querySelector('.quantum-sidebar');
+            const overlay = document.querySelector('.quantum-overlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevent scrolling when sidebar is open
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
+        }
+
+        function closeQuantumSidebar() {
+            const sidebar = document.querySelector('.quantum-sidebar');
+            const overlay = document.querySelector('.quantum-overlay');
+            
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleQuantumSearch(event) {
+            if (event.key === 'Enter') {
+                executeQuantumSearch();
+            }
+        }
+
+        function executeQuantumSearch() {
+            const searchInput = document.getElementById('search-input');
+            const searchTerm = searchInput.value.trim();
+            
+            if (searchTerm) {
+                // Animation effect for search
+                gsap.to('.search-container', {
+                    scale: 0.95,
+                    duration: 0.1,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "power1.inOut",
+                    onComplete: () => {
+                        // Redirect to Google search
+                        window.open(`https://www.google.com/search?q=${encodeURIComponent(searchTerm)}`, '_blank');
+                        searchInput.value = '';
+                    }
+                });
+            } else {
+                // Pulse animation for empty search
+                gsap.to('.search-container', {
+                    borderColor: '#ff00d4',
+                    duration: 0.2,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: "power1.inOut"
+                });
+            }
+        }
+        
+        function setupGlassEffects() {
+            // Get all glass elements
+            const glassElements = document.querySelectorAll('.glass-card');
+            
+            // Add mousemove effect for each glass element
+            glassElements.forEach(element => {
+                element.addEventListener('mousemove', handleMouseMove);
+                element.addEventListener('mouseleave', handleMouseLeave);
+            });
+            
+            // Handle mouse movement over glass elements
+            function handleMouseMove(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Update filter turbulence based on mouse position
+                const filter = document.getElementById('glass-distortion');
+                const displacement = filter.querySelector('feDisplacementMap');
+                
+                if (displacement) {
+                    const scaleX = (x / rect.width) * 100;
+                    const scaleY = (y / rect.height) * 100;
+                    displacement.setAttribute('scale', Math.min(scaleX, scaleY));
+                }
+                
+                // Add highlight effect
+                const specular = this.querySelector('.glass-specular');
+                if (specular) {
+                    specular.style.background = `radial-gradient(
+                        circle at ${x}px ${y}px,
+                        rgba(255,255,255,0.15) 0%,
+                        rgba(255,255,255,0.05) 30%,
+                        rgba(255,255,255,0) 60%
+                    )`;
+                }
+            }
+            
+            // Reset effects when mouse leaves
+            function handleMouseLeave() {
+                const displacement = document.querySelector('#glass-distortion feDisplacementMap');
+                if (displacement) {
+                    displacement.setAttribute('scale', '77');
+                }
+                
+                const specular = this.querySelector('.glass-specular');
+                if (specular) {
+                    specular.style.background = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
